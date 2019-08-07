@@ -1,6 +1,6 @@
 .idea/
 __pycache__/
-venv/
+moze_venv/
 .vscode/
 node_modules/
 
