@@ -107,3 +107,9 @@ def refresh():
         'access_token': access_token
     }
     return jsonify(ret), 200
+
+@auth_v1.route('/protected', methods=['GET'])
+@jwt_required
+def protected():
+    email = get_jwt_identity()
+    return jsonify(logged_in_as=email), 200
