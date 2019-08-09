@@ -1,7 +1,11 @@
 import json
 from flask import make_response, jsonify, request, Blueprint
+import datetime
+from werkzeug.security import check_password_hash
+from flask_jwt_extended import create_access_token, create_refresh_token
 from app.api.v1.models.users_model import UsersModel
-from utils.v1.validations import raise_error, check_register_keys, is_valid_email, portfolio_restrictions, is_valid_phone, is_valid_password
+from utils.v1.validations import raise_error, check_register_keys, is_valid_email,\
+ portfolio_restrictions, is_valid_phone, is_valid_password, check_login_keys
 
 auth_v1 = Blueprint('auth_v1', __name__)
 
@@ -59,3 +63,36 @@ def signup():
         "status": "201",
         "user": user
     }), 201)
+
+@auth_v1.route('/login', methods=['POST'])
+def login():
+    """Already existing user can sign in to their account."""
+    errors = check_login_keys(request)
+    if errors:
+        return raise_error(400, "Invalid {} key".format(', '.join(errors)))
+    details = request.get_json()
+    email = details['email']
+    password = details['password']
+
+    user = json.loads(UsersModel().get_email(email))
+    if user:
+        password_db = user['password']
+        if check_password_hash(password_db, password):
+            expires = datetime.timedelta(days=365)
+            token = create_access_token(identity=email, expires_delta=expires)
+            refresh_token = create_refresh_token(identity=email, expires_delta=expires)
+            return make_response(jsonify({
+                "status": "200",
+                "message": "Successfully logged in!",
+                "token": token,
+                "refresh_token": refresh_token,
+                "user": user
+            }), 200)
+        return make_response(jsonify({
+            "status": "401",
+            "message": "Invalid Email or Password"
+        }), 401)
+    return make_response(jsonify({
+        "status": "401",
+        "message": "Invalid Email or Password"
+    }), 401)

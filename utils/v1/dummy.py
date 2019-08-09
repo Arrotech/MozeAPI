@@ -1,4 +1,17 @@
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Auth Information @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+create_account = {
+    "firstname": "Peter",
+    "lastname": "Gitundu",
+    "surname": "Gitundu",
+    "phone": "0720930988",
+    "location": "Nakuru, Njoro",
+    "portfolio": "Education",
+    "occupation": "carpenter",
+    "username": "Peter254",
+    "email": "petergitundu94@gmail.com",
+    "password": "Peter20930988!",
+    "cost": 2500.50
+}
 
 new_account = {
     "firstname": "Harun",
@@ -194,4 +207,24 @@ email_exists = {
     "email": "harungachanjagitundu@gmail.com",
     "password": "Harun20930988!",
     "cost": 2500.50
+}
+
+user_login = {
+    "email": "petergitundu94@gmail.com",
+    "password": "Peter20930988!"
+}
+
+wrong_login_keys = {
+    "ema": "petergitundu94@gmail.com",
+    "password": "Peter20930988!"
+}
+
+wrong_password_login = {
+    "email": "harungachanjagitundu94@gmail.com",
+    "password": "Peter20930988!"
+}
+
+wrong_email_login = {
+    "email": "harungitundu94@gmail.com",
+    "password": "Harun20930988!"
 }
