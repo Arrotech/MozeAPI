@@ -4,6 +4,7 @@ import json
 
 from app import moze_app
 from app.api.v1.models.database import Database
+from utils.v1.dummy import create_account, user_login
 
 
 class BaseTest(unittest.TestCase):
@@ -22,3 +23,12 @@ class BaseTest(unittest.TestCase):
         """Tear down the data models after the tests run."""
         self.app_context.push()
         Database().destroy_table()
+
+    def get_token(self):
+        self.client.post('/api/v1/auth/register', data=json.dumps(create_account),
+                            content_type='application/json')
+        resp = self.client.post('/api/v1/auth/login', data=json.dumps(user_login),
+                            content_type='application/json')
+        access_token = json.loads(resp.get_data(as_text=True))['token']
+        auth_header = {'Authorization': 'Bearer {}'.format(access_token)}
+        return auth_header

@@ -17,6 +17,14 @@ def check_register_keys(request):
             errors.append(key)
     return errors
 
+def check_login_keys(request):
+    res_keys = [ 'email', 'password']
+    errors = []
+    for key in res_keys:
+        if not key in request.json:
+            errors.append(key)
+    return errors
+
 def is_valid_email(variable):
     """Check if email is a valid mail."""
     if re.match(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+[a-zA-Z0-9-.]+$)",
