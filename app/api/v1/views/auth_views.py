@@ -2,7 +2,7 @@ import json
 from flask import make_response, jsonify, request, Blueprint
 import datetime
 from werkzeug.security import check_password_hash
-from flask_jwt_extended import create_access_token, create_refresh_token
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, create_refresh_token, jwt_refresh_token_required, get_raw_jwt
 from app.api.v1.models.users_model import UsersModel
 from utils.v1.validations import raise_error, check_register_keys, is_valid_email,\
  portfolio_restrictions, is_valid_phone, is_valid_password, check_login_keys
@@ -96,3 +96,14 @@ def login():
         "status": "401",
         "message": "Invalid Email or Password"
     }), 401)
+
+@auth_v1.route('/refresh', methods=['POST'])
+@jwt_refresh_token_required
+def refresh():
+    current_user = get_jwt_identity()
+    expires = datetime.timedelta(days=365)
+    access_token = create_access_token(current_user, expires_delta=expires)
+    ret = {
+        'access_token': access_token
+    }
+    return jsonify(ret), 200
