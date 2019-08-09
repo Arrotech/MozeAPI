@@ -181,9 +181,19 @@ class TestUsersAccount(BaseTest):
         assert response1.status_code == 401
 
     def test_refresh_token(self):
-        """Test the vote json keys."""
+        """Test refresh token endpoint."""
 
         response = self.client.post(
             '/api/v1/auth/refresh', content_type='application/json',
             headers=self.get_refresh_token())
         assert response.status_code == 200
+
+    def test_protected(self):
+        """Test protect route."""
+
+        response = self.client.post(
+            '/api/v1/auth/register', content_type='application/json',
+            headers=self.get_token())
+        response1 = self.client.get(
+            '/api/v1/auth/protected', content_type='application/json', headers=self.get_token())
+        assert response1.status_code == 200
