@@ -10,7 +10,7 @@ def raise_error(status, msg):
     }), status)
 
 def check_register_keys(request):
-    res_keys = ['firstname', 'lastname', 'surname', 'phone', 'location', 'portfolio', 'occupation', 'username', 'email', 'password', 'cost']
+    res_keys = ['firstname', 'lastname', 'phone', 'username', 'email', 'password']
     errors = []
     for key in res_keys:
         if not key in request.json:
@@ -24,6 +24,23 @@ def check_login_keys(request):
         if not key in request.json:
             errors.append(key)
     return errors
+
+def check_add_services_keys(request):
+    res_keys = ['service_provider', 'portfolio', 'occupation', 'location', 'cost']
+    errors = []
+    for key in res_keys:
+        if not key in request.json:
+            errors.append(key)
+    return errors
+
+def convert_to_int(id):
+    try:
+        value = int(id)
+        if value > 0:
+            return value
+        return raise_error(400, "cannot be a negative number")
+    except Exception as e:
+        return {"message": e}
 
 def is_valid_email(variable):
     """Check if email is a valid mail."""
