@@ -23,15 +23,21 @@ class Database:
                 user_id serial PRIMARY KEY,
                 firstname varchar NOT NULL,
                 lastname varchar NOT NULL,
-                surname varchar NOT NULL,
                 phone varchar NOT NULL,
-                location varchar NOT NULL,
-                portfolio varchar NOT NULL,
-                occupation varchar NOT NULL,
                 username varchar NOT NULL,
                 email varchar NOT NULL,
-                password varchar NOT NULL,
-                cost numeric NOT NULL
+                password varchar NOT NULL
+            )""",
+            """
+            CREATE TABLE IF NOT EXISTS add_services(
+                service_id serial UNIQUE,
+                service_provider integer NOT NULl DEFAULT 0,
+                portfolio varchar NOT NULL,
+                occupation varchar NOT NULL,
+                location varchar NOT NULL,
+                cost varchar NOT NULL,
+                CONSTRAINT service_provider_fk FOREIGN KEY(service_provider) REFERENCES users(user_id),
+                CONSTRAINT add_services_composite_key PRIMARY KEY(service_provider)
             )"""
         ]
         try:
@@ -42,10 +48,20 @@ class Database:
         except Exception as e:
             return e
 
+    def fetch(self, query):
+        """Manipulate query."""
+
+        self.curr.execute(query)
+        fetch_all = self.curr.fetchall()
+        self.conn.commit()
+        self.curr.close()
+        return fetch_all
+
     def destroy_table(self):
         """Destroy tables"""
         users = "DROP TABLE IF EXISTS  users CASCADE"
-        queries = [users]
+        add_services = "DROP TABLE IF EXISTS  add_services CASCADE"
+        queries = [users, add_services]
         try:
             for query in queries:
                 self.curr.execute(query)
@@ -57,4 +73,3 @@ class Database:
 if __name__ == '__main__':
     Database().destroy_table()
     Database().create_table()
-

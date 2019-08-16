@@ -1,9 +1,9 @@
 import json
 
 from utils.v1.dummy import new_account, wrong_account_keys, wrong_account_firstname,\
-    wrong_account_lastname, wrong_account_surname, wrong_account_portfolio,\
-    wrong_account_occupation, wrong_account_phone, wrong_account_email,\
-    wrong_account_password, wrong_account_cost, phone_exists, username_exists,\
+    wrong_account_lastname,\
+    wrong_account_phone, wrong_account_email,\
+    wrong_account_password, phone_exists, username_exists,\
     email_exists, wrong_login_keys, wrong_password_login, wrong_email_login
 from .base_test import BaseTest
 
@@ -51,36 +51,6 @@ class TestUsersAccount(BaseTest):
         self.assertEqual(result['message'], 'Last name is in wrong format')
         assert response.status_code == 400
 
-    def test_account_surname_input(self):
-        """Test create account surname input."""
-
-        response = self.client.post(
-            '/api/v1/auth/register', data=json.dumps(wrong_account_surname), content_type='application/json',
-            headers=self.get_token())
-        result = json.loads(response.data.decode())
-        self.assertEqual(result['message'], 'Surname is in wrong format')
-        assert response.status_code == 400
-
-    def test_account_portfolio_input(self):
-        """Test create account portfolio input."""
-
-        response = self.client.post(
-            '/api/v1/auth/register', data=json.dumps(wrong_account_portfolio), content_type='application/json',
-            headers=self.get_token())
-        result = json.loads(response.data.decode())
-        self.assertEqual(result['message'], 'Portfolio should be either Education, Technical, Health or Domestic')
-        assert response.status_code == 400
-
-    def test_account_occupation_input(self):
-        """Test create account occupation input."""
-
-        response = self.client.post(
-            '/api/v1/auth/register', data=json.dumps(wrong_account_occupation), content_type='application/json',
-            headers=self.get_token())
-        result = json.loads(response.data.decode())
-        self.assertEqual(result['message'], 'Occupation is in wrong format')
-        assert response.status_code == 400
-
     def test_account_phone_input(self):
         """Test create account phone input."""
 
@@ -109,16 +79,6 @@ class TestUsersAccount(BaseTest):
             headers=self.get_token())
         result = json.loads(response.data.decode())
         self.assertEqual(result['message'], 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character!')
-        assert response.status_code == 400
-
-    def test_account_cost_input(self):
-        """Test create account cost input."""
-
-        response = self.client.post(
-            '/api/v1/auth/register', data=json.dumps(wrong_account_cost), content_type='application/json',
-            headers=self.get_token())
-        result = json.loads(response.data.decode())
-        self.assertEqual(result['message'], 'Invalid cost value!')
         assert response.status_code == 400
 
     def test_create_account_with_an_existing_phone_number(self):
@@ -197,3 +157,23 @@ class TestUsersAccount(BaseTest):
         response1 = self.client.get(
             '/api/v1/auth/protected', content_type='application/json', headers=self.get_token())
         assert response1.status_code == 200
+
+    def test_method_not_allowed(self):
+        """Test method not allowed."""
+
+        response = self.client.get(
+            '/api/v1/auth/register', data=json.dumps(new_account), content_type='application/json',
+            headers=self.get_token())
+        result = json.loads(response.data.decode())
+        self.assertEqual(result['message'], 'method not allowed')
+        assert response.status_code == 405
+
+    def test_unexisting_hotelUrl(self):
+        """Test when unexisting url is provided."""
+
+        response = self.client.post(
+            '/api/v1/auth/registe', data=json.dumps(new_account), content_type='application/json',
+            headers=self.get_token())
+        result = json.loads(response.data.decode())
+        assert response.status_code == 404
+        assert result['message'] == "resource not found"

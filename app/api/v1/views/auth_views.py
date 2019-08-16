@@ -5,7 +5,7 @@ from werkzeug.security import check_password_hash
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, create_refresh_token, jwt_refresh_token_required, get_raw_jwt
 from app.api.v1.models.users_model import UsersModel
 from utils.v1.validations import raise_error, check_register_keys, is_valid_email,\
- portfolio_restrictions, is_valid_phone, is_valid_password, check_login_keys
+  is_valid_phone, is_valid_password, check_login_keys
 
 auth_v1 = Blueprint('auth_v1', __name__)
 
@@ -19,34 +19,21 @@ def signup():
     details = request.get_json()
     firstname = details['firstname']
     lastname = details['lastname']
-    surname = details['surname']
     phone = details['phone']
-    location = details['location']
-    portfolio = details['portfolio']
-    occupation = details['occupation']
     username = details['username']
     email = details['email']
     password = details['password']
-    cost = details['cost']
 
     if details['firstname'].isalpha() is False:
         return raise_error(400, "First name is in wrong format")
     if details['lastname'].isalpha() is False:
         return raise_error(400, "Last name is in wrong format")
-    if details['surname'].isalpha() is False:
-        return raise_error(400, "Surname is in wrong format")
-    if (portfolio_restrictions(portfolio) is False):
-        return raise_error(400, "Portfolio should be either Education, Technical, Health or Domestic")
-    if details['occupation'].isalpha() is False:
-        return raise_error(400, "Occupation is in wrong format")
     if not is_valid_phone(phone):
         return raise_error(400, "Invalid phone number!")
     if not is_valid_email(email):
         return raise_error(400, "Invalid email!")
     if not is_valid_password(password):
         return raise_error(400, "Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character!")
-    if type(cost) != float:
-        return raise_error(400, "Invalid cost value!")
     user_phone = json.loads(UsersModel().get_phone(phone))
     if user_phone:
         return raise_error(400, "Phone number already exists!")
@@ -56,7 +43,7 @@ def signup():
     user_email = json.loads(UsersModel().get_email(email))
     if user_email:
         return raise_error(400, "Email already exists!")
-    user = UsersModel(firstname, lastname, surname, phone, location, portfolio, occupation, username, email, password, cost).save()
+    user = UsersModel(firstname, lastname, phone, username, email, password).save()
     user = json.loads(user)
     return make_response(jsonify({
         "message": "Account created successfully!",
