@@ -28,7 +28,7 @@ class AddServicesModel(Database):
             self.conn.commit()
             self.curr.close()
             return service
-            
+
 
             query = """
 					SELECT users.username FROM add_services\
