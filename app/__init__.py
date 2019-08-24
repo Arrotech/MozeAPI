@@ -6,6 +6,7 @@ from flask_restful import Api
 
 from app.api.v1.views.auth_views import auth_v1
 from app.api.v1.views.add_services import add_services_v1
+from app.api.v1.views.seek_services import seek_services_v1
 from app.config import app_config
 
 
@@ -36,6 +37,7 @@ def moze_app(config_name):
 
     app.register_blueprint(auth_v1, url_prefix='/api/v1/auth/')
     app.register_blueprint(add_services_v1, url_prefix='/api/v1/')
+    app.register_blueprint(seek_services_v1, url_prefix='/api/v1/')
     app.register_error_handler(404, page_not_found)
     app.register_error_handler(405, method_not_allowed)
 

@@ -27,6 +27,12 @@ class UsersModel(Database):
         self.curr.close()
         return json.dumps(user, default=str)
 
+    def get_users(self):
+        "Get all users."
+        query = "SELECT * from users"
+        users = Database().fetch(query)
+        return json.dumps(users, default=str)
+
     def get_username(self, username):
         """Request a single user with specific Username."""
         self.curr.execute(""" SELECT * FROM users WHERE username=%s""", (username,))
