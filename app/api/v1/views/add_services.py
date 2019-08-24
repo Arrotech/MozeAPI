@@ -20,6 +20,7 @@ def add_service():
     portfolio = details['portfolio']
     occupation = details['occupation']
     location = details['location']
+    img = details['img']
     cost = details['cost']
 
     value = convert_to_int(service_provider)
@@ -27,7 +28,7 @@ def add_service():
         return raise_error(400, "only positive integer is accepted")
 
     if UsersModel().get_username(service_provider):
-        service = AddServicesModel(service_provider, portfolio, occupation, location, cost).save()
+        service = AddServicesModel(service_provider, portfolio, occupation, location, img, cost).save()
         return make_response(jsonify({
             "status": "201",
             "message": "You have successfully added the service!",

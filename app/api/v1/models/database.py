@@ -35,9 +35,20 @@ class Database:
                 portfolio varchar NOT NULL,
                 occupation varchar NOT NULL,
                 location varchar NOT NULL,
+                img varchar NOT NULL,
                 cost varchar NOT NULL,
                 CONSTRAINT service_provider_fk FOREIGN KEY(service_provider) REFERENCES users(user_id),
                 CONSTRAINT add_services_composite_key PRIMARY KEY(service_provider)
+            )""",
+            """
+            CREATE TABLE IF NOT EXISTS seek_services(
+                services_id serial UNIQUE,
+                service_seeker integer NOT NULl DEFAULT 0,
+                service integer NOT NULl DEFAULT 0,
+                cost varchar NOT NULL,
+                CONSTRAINT service_seeker_fk FOREIGN KEY(service_seeker) REFERENCES users(user_id),
+                CONSTRAINT service_fk FOREIGN KEY(service) REFERENCES add_services(service_id),
+                CONSTRAINT seek_services_composite_key PRIMARY KEY(service_seeker,service)
             )"""
         ]
         try:
@@ -61,7 +72,8 @@ class Database:
         """Destroy tables"""
         users = "DROP TABLE IF EXISTS  users CASCADE"
         add_services = "DROP TABLE IF EXISTS  add_services CASCADE"
-        queries = [users, add_services]
+        seek_services = "DROP TABLE IF EXISTS  seek_services CASCADE"
+        queries = [users, add_services, seek_services]
         try:
             for query in queries:
                 self.curr.execute(query)

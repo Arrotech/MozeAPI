@@ -1,6 +1,7 @@
 import json
 
-from utils.v1.dummy import new_account, add_service, wrong_add_services_keys
+from utils.v1.dummy import new_account, add_service, wrong_add_services_keys,\
+wrong_service_provider_input
 
 from .base_test import BaseTest
 
@@ -18,6 +19,19 @@ class TestAddServices(BaseTest):
         result = json.loads(response.data.decode())
         self.assertEqual(result['message'], 'You have successfully added the service!')
         assert response.status_code == 201
+
+    def test_service_provider_input(self):
+        """Test the format of the service provider input"""
+
+        response1 = self.client.post(
+            '/api/v1/auth/register', data=json.dumps(new_account), content_type='application/json',
+            headers=self.get_token())
+        response = self.client.post(
+            '/api/v1/add_services', data=json.dumps(wrong_service_provider_input), content_type='application/json',
+            headers=self.get_token())
+        result = json.loads(response.data.decode())
+        self.assertEqual(result['message'], 'only positive integer is accepted')
+        assert response.status_code == 400
 
     def test_add_services_keys(self):
         """Test add services json keys."""
