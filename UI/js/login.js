@@ -55,7 +55,7 @@ document.getElementById('postLogin').addEventListener('submit', postLogin);
 
             })
             .catch((err)=> {
-                raiseError("Please check your internet connection!");
+                raiseError("Check your internet connection!");
                 console.log(err);
             })
         }

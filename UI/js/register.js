@@ -50,7 +50,7 @@ document.getElementById('postSignup').addEventListener('submit', postSignup);
                 }
             })
             .catch((err)=>{
-                raiseError("Please check your internet connection and try again!");
+                raiseError("Check your internet connection!");
                 console.log(err);
             })
         }
