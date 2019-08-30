@@ -1,14 +1,13 @@
 .main{
   height:350px;
   width:450px;
-  margin:7% auto;
+  margin:5% auto;
 }
 .main div{
-  display: inline-block;
+  display: block;
   border:none;
 }
 .main .left{
-  width:50%;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -34,7 +33,7 @@
 }
 .left form input{
   text-align:center;
-  width:90%;
+  width:50%;
   height:25px;
   margin-bottom:30px;
   border:none;
