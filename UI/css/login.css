@@ -1,16 +1,20 @@
 .main{
   height:350px;
-  width:450px;
+  width:300px;
   margin:5% auto;
+  background-color: red;
+  border-radius: 5px;
 }
 .main div{
-  display: block;
+  display: inline-block;
   border:none;
+  background-color: red;
 }
 .main .left{
   display: block;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
   height:100%;
   background-color: #d65050;
   border-radius: 5px;
@@ -33,7 +37,7 @@
 }
 .left form input{
   text-align:center;
-  width:50%;
+  width:80%;
   height:25px;
   margin-bottom:30px;
   border:none;

@@ -154,7 +154,7 @@ body{
 
 .row-one{
   background: #fff;
-  padding: 100px;
+  padding: 50px;
   font-size: 20px;
   text-align: center;
 }
@@ -229,22 +229,13 @@ transition: 0.5s;
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes example {
-  from {top: -60px;}
-  to {top: 10px; color: #d65050;}
+  from {top: -40px;}
+  to {top: 0px; color: #d65050;}
 }
 
 @keyframes example {
-  from {top: -60px;}
-  to {top: 10px; color: #000000;}
-}
-
-/* Style the form */
-.addHotel {
-  background-color: #ffffff;
-  margin: 100px auto;
-  padding: 40px;
-  width: 40%;
-  border-radius: 5px;
+  from {top: -40px;}
+  to {top: 0px; color: #000000;}
 }
 
 @media screen and (max-width: 600px) {
