@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Moze</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  	<link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="header">
+      <h3>moze.com</h3>
+    </div>
+	<div class="topnav" id="myTopnav">
+	  <a href="index.html" class="active">HOME</a>
+	  <div class="dropdown">
+	    <button class="dropbtn">SERVICES 
+	      <i class="fa fa-caret-down"></i>
+	    </button>
+	    <div class="dropdown-content">
+	      <a href="order.html">ORDER</a>
+	      <a href="add.html">ADD</a>
+	      <a href="view.html">VIEW</a>
+	    </div>
+	  </div> 
+  	  <a href="#news">ABOUT</a>
+	  <a href="#contact">CONTACT</a>
+	  <a href="login.html">LOGIN</a>
+	  <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+	</div>
+	    <div class="row-one">
+      <div class="header-content">
+        <h2 class="">WE ARE HERE TO PARTNER WITH YOU!</h2>
+        <h2>Travel with us today</h2>
+        <h5>Book trips in advance and have an outpost experience</h5>
+        <h5>Are you looking for a Hotel?</h5>
+        <div class="btn">
+          <a href="#about"><button id="btn1"><span>LEARN MORE</span></button></a>
+          <a href="#footer"><button id="btn2">BOOK</button></a>
+        </div>
+      </div>
+    </div>
+	<script>
+		function myFunction() {
+		  var x = document.getElementById("myTopnav");
+		  if (x.className === "topnav") {
+		    x.className += " responsive";
+		  } else {
+		    x.className = "topnav";
+		  }
+		}
+</script>
+ <footer class="footer-distributed">
+	<div class="footer-left" id="footer">
+		<h3>Mo<span>ze</span></h3>
+
+		<p class="footer-links">
+			<a href="index.html">Home</a>
+			|
+			<a href="add_hotel.html">Hotels</a>
+			|
+			<a href="book_lodge.html">Lodges</a>
+			|
+			<a href="book_trip.html">Trips</a>
+		</p>
+
+		<p class="footer-company-name">© 2019 BookIt Ltd.</p>
+	</div>
+
+	<div class="footer-center">
+		<div>
+			<i class="fa fa-map-marker"></i>
+			  <p><span>389 - Racecourse,
+				 Bldg. Name. Arrotech</span>
+				Nakuru, Kenya - 20100</p>
+		</div>
+
+		<div>
+			<i class="fa fa-phone"></i>
+			<p>+254 711 371 265</p>
+		</div>
+		<div>
+			<i class="fa fa-envelope"></i>
+			<p><a href="mailto:arrotechdesign@gmail.com">arrotechdesign@gmail.com</a></p>
+		</div>
+	</div>
+	<div class="footer-right">
+		<p class="footer-company-about">
+			<span>About the company</span>
+			We offer tour, travel and booking services around the world. Book for these services with only a few clicks of a button.</p>
+		<div class="footer-icons">
+			<a href="#"><i class="fa fa-facebook"></i></a>
+			<a href="#"><i class="fa fa-twitter"></i></a>
+			<a href="#"><i class="fa fa-instagram"></i></a>
+			<a href="#"><i class="fa fa-linkedin"></i></a>
+			<a href="#"><i class="fa fa-youtube"></i></a>
+		</div>
+	</div>
+</footer>
+</body>
+</html>
