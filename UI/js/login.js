@@ -45,9 +45,9 @@ document.getElementById('postLogin').addEventListener('submit', postLogin);
                         window.location.replace('admin.html');
                     }
                     else{
-                    localStorage.setItem('token', data.token);
-                    onSuccess('Signed in successfully!');
-                    window.location.replace('user.html');
+                      localStorage.setItem('token', data.token);
+                      onSuccess('Signed in successfully!');
+                      window.location.replace('add.html');
                     }
                 }else{
                     raiseError(message);
