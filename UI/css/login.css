@@ -142,14 +142,5 @@
   .left p.or{
     display: none;
   }
-  .main .left{
-    width:50%;
-    margin-left: 60px;
-    height:100%;
-    background-color: #d65050;
-    border-radius: 5px;
-    position: relative;
-    color: white;
-  }
 
 }

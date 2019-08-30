@@ -249,6 +249,25 @@ transition: 0.5s;
   border-radius: 5px;
 }
 
+@media screen and (max-width: 600px) {
+
+	#btn1{
+		display: inline-block;
+		border-radius: 4px;
+		background-color: #d65050;
+		border: none;
+		color: #FFFFFF;
+		text-align: center;
+		font-size: 20px;
+		padding: 20px;
+		width: 220px;
+		transition: all 0.5s;
+		cursor: pointer;
+		margin: 5px;
+	}
+
+}
+
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ SNACK BAR SHOW @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 
