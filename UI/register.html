@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Log-In</title>
+    <title>Regoster</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="css/login.css"/>
@@ -36,13 +36,17 @@
   </div>
   <div class="main">
           <div class="left">
-              <h1>Login</h1>
-              <p><i>To your Account</i></p>
-              <form id="postLogin">
+              <h1>Create</h1>
+              <p><i>a new account</i></p>
+              <form id="postSignup">
+                  <input id="firstname" type="text" placeholder="First Name">
+                  <input id="lastname" type="text" placeholder="Last Name">
+                  <input id="phone" type="text" placeholder="0711...">
+                  <input id="username" type="text" placeholder="Username">
                   <input id="email" type="text" placeholder="Email">
                   <input id="password" type="password" placeholder="Password">
-                  <input type="submit" onclick="callToast()" value="LOG IN" ><br>
-                  <p class="forgot">Don't have an account? <a href="register.html"> SignUp</a></p>
+                  <input type="submit" onclick="callToast()" value="SIGN UP" ><br>
+                  <p class="forgot">Already have an account? <a href="login.html"> Login</a></p>
                   <div id="snackbar">Just a moment...</div>
               </form>
           </div>
@@ -57,7 +61,7 @@
       }
     }
   </script>
-  <script type="text/javascript" src="js/login.js"></script>
+  <script type="text/javascript" src="js/register.js"></script>
  <footer class="footer-distributed">
   <div class="footer-left" id="footer">
     <h3>Mo<span>ze</span></h3>
