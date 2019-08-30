@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Provide-Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/add.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  	<link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <div id="header">
+    <h3>moze.com</h3>
+  </div>
+  <div class="topnav" id="myTopnav">
+    <a href="index.html" class="active">Moze</a>
+    <div class="dropdown">
+      <button class="dropbtn">SERVICES 
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="order.html">ORDER</a>
+        <a href="add.html">ADD</a>
+        <a href="view.html">VIEW</a>
+      </div>
+    </div> 
+      <a href="#news">ABOUT</a>
+    <a href="#contact">CONTACT</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+  <div class="main">
+          <div class="left">
+              <h1>Add</h1>
+              <p><i>a service</i></p>
+              <form id="postServices">
+                  <input id="service_provider" type="text" placeholder="Username">
+                  <select id="portfolio">
+                    <option value="Technical">--Select an Item--</option>
+                    <option value="Technical">Technical</option>
+                    <option value="Health">Health</option>
+                    <option value="Education">Education</option>
+                    <option value="Domestic">Domestic</option>
+                  </select>
+                  <select id="occupation">
+                    <option value="">--select one--</option>
+                  </select>
+                  <input style="width: 73%" id="location" type="text" placeholder="Address"> <a style="color: #fff; text-decoration: none; margin-left: 2px; font-size: 16px; background: #000000; padding: 5px; border-radius: 50%;"  href="https://www.google.com/business/">+</a>
+                  <input id="img" type="text" placeholder="picture.png">
+                  <input id="cost" type="text" placeholder="20000">
+                  <input type="submit" onclick="callToast()" value="ADD" ><br>
+                  <div id="snackbar">Just a moment...</div>
+              </form>
+          </div>
+      </div>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+  </script>
+  <script type="text/javascript" src="js/add.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#portfolio").change(function () {
+         switch($(this).val()) {
+            case 'Education':
+                $("#occupation").html("<option value='Science'>Science</option><option value='Art'>Art</option><option value='Social'>Social</option><option value='Health Science'>Health Science</option>");
+                break;
+            case 'Technical':
+                $("#occupation").html("<option value='Electrical'>Electrical</option><option value='Mechanical'>Mechanical</option><option value='Computer and Electronics'>Computer and Electronics</option>");
+                break;
+            case 'Health':
+                $("#occupation").html("<option value='Emergency'>Emergency</option><option value='Regular Check'>Regular Check</option>");
+                break;
+            case 'Domestic':
+                $("#occupation").html("<option value='General House Work'>General House Work</option>");
+                break;
+            default:
+                $("#occupation").html("<option value=''>--select one--</option>");
+         }
+      });
+    });
+  </script>
+ <footer class="footer-distributed">
+  <div class="footer-left" id="footer">
+    <h3>Mo<span>ze</span></h3>
+
+    <p class="footer-links">
+      <a href="index.html">Moze</a>
+      |
+      <a href="order.html">Order</a>
+      |
+      <a href="add.html">Add</a>
+      |
+      <a href="login.html">Login</a>
+    </p>
+
+    <p class="footer-company-name">© 2019 BookIt Ltd.</p>
+  </div>
+
+  <div class="footer-center">
+    <div>
+      <i class="fa fa-map-marker"></i>
+        <p><span>389 - Racecourse,
+         Bldg. Name. Arrotech</span>
+        Nakuru, Kenya - 20100</p>
+    </div>
+
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+254 711 371 265</p>
+    </div>
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="mailto:arrotechdesign@gmail.com">arrotechdesign@gmail.com</a></p>
+    </div>
+  </div>
+  <div class="footer-right">
+    <p class="footer-company-about">
+      <span>About the company</span>
+      We offer tour, travel and booking services around the world. Book for these services with only a few clicks of a button.</p>
+    <div class="footer-icons">
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+      <a href="#"><i class="fa fa-linkedin"></i></a>
+      <a href="#"><i class="fa fa-youtube"></i></a>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>
