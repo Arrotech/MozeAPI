@@ -1,6 +1,6 @@
 .main{
   height:350px;
-  width:700px;
+  width:450px;
   margin:7% auto;
 }
 .main div{
@@ -9,7 +9,9 @@
 }
 .main .left{
   width:50%;
-  float:left;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   height:100%;
   background-color: #d65050;
   border-radius: 5px;
@@ -32,9 +34,9 @@
 }
 .left form input{
   text-align:center;
-  width:70%;
-  height:35px;
-  margin-bottom:10px;
+  width:90%;
+  height:25px;
+  margin-bottom:30px;
   border:none;
   border:1px solid #F8F8F8;
   background-color:#F8F8F8;
@@ -62,85 +64,4 @@
   color:#fff;
   font-size:12px;
   padding-top: 30px;
-}
-.left p.or{
-  color:grey;
-  font-size:15px;
-  border:1px solid #f8f8f8;
-  width:40px;
-  font-weight:200;
-  height:30px;
-  padding-top:10px;
-  background-color: #fff;
-  border-radius: 50%;
-  position: absolute;
-  top: 42%;
-  left: 94%;
-  z-index:10;
-}
-.main .right{
-  width:50%;
-  float:left;
-  height:100%;
-  margin-left:-5px;
-  padding-right:5px;
-  background-image:url('https://s4.postimg.org/k8u6q3g8d/baloon.jpg');
-  background-color:#333;
-  background-size: cover;
-  text-align:center;
-  border-radius: 5px;
-  color: #fff;
-}
-.right h1{
-  padding-top:50px;
-  margin-bottom:10px;
-}
-.right{
-  color:#fff;
-}
-.right p{
-  margin:0;
-}
-.right .social{
-  margin-top:40px;
-  width:100%;
-}
-.social button{
-  border:none;
-  padding:15px;
-  width:50px;
-  font-size:18px;
-  background-color:#fff;
-  margin-left:10px;
-  margin-right:10px;
-  border-radius:50%;
-}
-.social .twitter{
-  color:#55ACEE;
-}
-.social .facebook{
-  color:#012677;
-}
-.social .google{
-  color:#D50F25;
-}
-.social p{
-  font-size:12px;
-}
-.social p.dont{
-  padding-top: 60px;
-  font-size:13px;
-}
-
-/*Make the login page responsive*/
-@media screen and (max-width: 600px) {
-
-  .main .right {
-    display: none;
-  }
-
-  .left p.or{
-    display: none;
-  }
-
 }

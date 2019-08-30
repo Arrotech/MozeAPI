@@ -251,7 +251,7 @@ transition: 0.5s;
 
 @media screen and (max-width: 600px) {
 	.row-one{
-	  display: block;
+	  display: inline-block;
 	  background: #fff;
 	  padding: 100px;
 	  font-size: 20px;
@@ -272,6 +272,18 @@ transition: 0.5s;
 		cursor: pointer;
 		margin: 5px;
 	}
+	#btn2{
+	display: inline-block;
+	border-radius: 5px;
+  	font-weight: bolder;
+  	border: 1px solid #d65050;
+  	width: 200px;
+  	height: 64px;
+	font-size: 20px;
+  	color: #d65050;
+	margin-left: 10px;
+	background: transparent;
+}
 
 }
 
@@ -282,7 +294,7 @@ transition: 0.5s;
 #snackbar {
   visibility: hidden;
   min-width: 250px;
-  margin-left: -125px;
+  margin-left: -100px;
   background-color: #d65050;
   color: #000000;
   text-align: center;
