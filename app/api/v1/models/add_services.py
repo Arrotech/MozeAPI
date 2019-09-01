@@ -57,7 +57,7 @@ class AddServicesModel(Database):
         """Get a service with specific occupation."""
 
         self.curr.execute(''' SELECT * FROM add_services WHERE occupation=%s''', (occupation,))
-        service = self.curr.fetchone()
+        service = self.curr.fetchall()
         self.conn.commit()
         self.curr.close()
         return json.dumps(service, default=str)

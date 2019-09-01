@@ -31,24 +31,21 @@ class Database:
             """
             CREATE TABLE IF NOT EXISTS add_services(
                 service_id serial UNIQUE,
-                service_provider integer NOT NULl DEFAULT 0,
+                service_provider integer NOT NULL REFERENCES users (user_id) ON DELETE CASCADE,
                 portfolio varchar NOT NULL,
                 occupation varchar NOT NULL,
                 location varchar NOT NULL,
                 img varchar NOT NULL,
                 cost varchar NOT NULL,
-                CONSTRAINT service_provider_fk FOREIGN KEY(service_provider) REFERENCES users(user_id),
-                CONSTRAINT add_services_composite_key PRIMARY KEY(service_provider)
+                PRIMARY KEY (service_provider)
             )""",
             """
             CREATE TABLE IF NOT EXISTS seek_services(
-                services_id serial UNIQUE,
-                service_seeker integer NOT NULl DEFAULT 0,
-                service integer NOT NULl DEFAULT 0,
+                services_id serial NOT NULL,
+                service_seeker integer NOT NULL REFERENCES users (user_id) ON DELETE CASCADE,
+                service integer NOT NULL REFERENCES add_services (service_id) ON DELETE CASCADE,
                 cost varchar NOT NULL,
-                CONSTRAINT service_seeker_fk FOREIGN KEY(service_seeker) REFERENCES users(user_id),
-                CONSTRAINT service_fk FOREIGN KEY(service) REFERENCES add_services(service_id),
-                CONSTRAINT seek_services_composite_key PRIMARY KEY(service_seeker,service)
+                PRIMARY KEY (service_seeker, service)
             )"""
         ]
         try:
