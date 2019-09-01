@@ -32,7 +32,7 @@ document.getElementById('postSignup').addEventListener('submit', postSignup);
             fetch('https://moze-services-api.herokuapp.com/api/v1/auth/register', {
                 method: 'POST',
                 headers : {
-                    Accept: 'application/json',
+                    'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
                 body:JSON.stringify({firstname:firstname, lastname:lastname, phone:phone, username:username, email:email, password:password})
