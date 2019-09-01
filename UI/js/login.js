@@ -25,7 +25,7 @@ document.getElementById('postLogin').addEventListener('submit', postLogin);
             let email = document.getElementById('email').value;
             let password = document.getElementById('password').value;
 
-            fetch('https://moze-app-api.herokuapp.com/api/v1/auth/login', {
+            fetch('https://moze-services-api.herokuapp.com/api/v1/auth/login', {
                 method: 'POST',
                 headers : {
                   Accept: 'application/json',

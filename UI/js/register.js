@@ -29,7 +29,7 @@ document.getElementById('postSignup').addEventListener('submit', postSignup);
             let email = document.getElementById('email').value;
             let password = document.getElementById('password').value;
 
-            fetch('http://localhost:5000/api/v1/auth/register', {
+            fetch('https://moze-services-api.herokuapp.com/api/v1/auth/register', {
                 method: 'POST',
                 headers : {
                 	Accept: 'application/json',
