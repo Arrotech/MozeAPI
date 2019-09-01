@@ -24,14 +24,6 @@ def method_not_allowed(e):
         "message": "method not allowed"
     }), 405)
 
-def internal_server_error(e):
-    """Capture Not Found error."""
-    
-    return make_response(jsonify({
-        "status": "500",
-        "message": "internal server error"
-    }), 500)
-
 def moze_app(config_name):
     """Create the app."""
     app = Flask(__name__)
@@ -48,6 +40,5 @@ def moze_app(config_name):
     app.register_blueprint(seek_services_v1, url_prefix='/api/v1/')
     app.register_error_handler(404, page_not_found)
     app.register_error_handler(405, method_not_allowed)
-    app.register_error_handler(500, internal_server_error)
 
     return app
