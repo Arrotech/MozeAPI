@@ -32,7 +32,7 @@ document.getElementById('postSignup').addEventListener('submit', postSignup);
             fetch('https://moze-services-api.herokuapp.com/api/v1/auth/register', {
                 method: 'POST',
                 headers : {
-                	Accept: 'application/json',
+                    Accept: 'application/json',
                     'Content-Type': 'application/json'
                 },
                 body:JSON.stringify({firstname:firstname, lastname:lastname, phone:phone, username:username, email:email, password:password})
@@ -44,6 +44,9 @@ document.getElementById('postSignup').addEventListener('submit', postSignup);
                 let message = data['message'];
                 if (status === '201'){
                     localStorage.setItem("user", JSON.stringify(data[0]));
+                    localStorage.setItem('user', data.user);
+                    localStorage.setItem('username', data.user.username);
+                    localStorage.setItem('email', data.user.email);
                     window.location.replace('login.html');
                 }else{
                     raiseError(message);
