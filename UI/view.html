@@ -5,6 +5,8 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
   	<link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
     <div id="header">
@@ -29,11 +31,14 @@
 	</div>
   	<div class="main">
           <div class="left">
-              <p><i>Search by occupation</i></p>
-              <form id="getServices">
-                  <input id="occupation" type="text" placeholder="Occupation">
-                  <input type="submit" onclick="callToast()" value="Search" ><br>
-                  <p class="stack" id="output"></p>
+          	<div class="icons">
+          		<i class="glyphicon glyphicon-cloud"></i>
+              	<h3>Mo<span>ze</span></h3>
+          	</div>
+              <form class="example">
+                  <input class="search" id="occupation" type="text" placeholder="Search services by occupation">
+                  <button type="submit" id="getServices" onclick="callToast()"><i class="fa fa-search"></i></button><br><br><br>
+                  <p class="stack" id="result"></p>
               </form>
           </div>
     </div>

@@ -278,6 +278,70 @@ transition: 0.5s;
 	padding: 20px;
 }
 
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ VIEWS @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+.icons h3 span{
+	color:  #d65050;
+}
+
+.icons h3{
+	color:  #000000;
+	font: normal 36px 'Cookie', cursive;
+	margin: 0;
+
+}
+
+.search{
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 70%;
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.example{
+	margin-left: 10px;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #d65050;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.icons{
+	display: flex;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+.glyphicon{
+
+	font-size:38px;
+	color:red;
+}
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.search:focus{
+  outline:none;
+}
+::-webkit-input-placeholder{
+  color:grey;
+  letter-spacing: 1px;
+}
 /*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ SNACK BAR SHOW @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
 
 

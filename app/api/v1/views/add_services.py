@@ -37,7 +37,6 @@ def add_service():
     return raise_error(400, "Please check your input and try again!")
 
 @add_services_v1.route('/add_services', methods=['GET'])
-@jwt_required
 def get_all_services():
     '''Fetch all the existing services.'''
 
@@ -48,7 +47,6 @@ def get_all_services():
     }), 200)
 
 @add_services_v1.route('/add_services/<string:occupation>', methods=['GET'])
-@jwt_required
 def get_specific_service(occupation):
     """Fetch a specific service."""
 

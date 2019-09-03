@@ -56,7 +56,7 @@ class TestAddServices(BaseTest):
             '/api/v1/add_services', data=json.dumps(add_service), content_type='application/json',
             headers=self.get_token())
         response1 = self.client.get(
-            '/api/v1/add_services', content_type='application/json', headers=self.get_token())
+            '/api/v1/add_services', content_type='application/json')
         result = json.loads(response1.data.decode())
         self.assertEqual(result['message'],
                          "success")
@@ -72,7 +72,7 @@ class TestAddServices(BaseTest):
             '/api/v1/add_services', data=json.dumps(add_service), content_type='application/json',
             headers=self.get_token())
         response = self.client.get(
-            '/api/v1/add_services/carpenter', content_type='application/json', headers=self.get_token())
+            '/api/v1/add_services/carpenter', content_type='application/json')
         result = json.loads(response.data.decode())
         self.assertEqual(result['message'],
                          'success')
