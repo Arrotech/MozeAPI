@@ -26,7 +26,7 @@ def check_login_keys(request):
     return errors
 
 def check_add_services_keys(request):
-    res_keys = ['service_provider', 'portfolio', 'occupation', 'location', 'img', 'cost']
+    res_keys = ['service_provider', 'portfolio', 'occupation', 'phone', 'location', 'img', 'cost']
     errors = []
     for key in res_keys:
         if not key in request.json:

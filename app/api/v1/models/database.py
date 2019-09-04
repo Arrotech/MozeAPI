@@ -34,6 +34,7 @@ class Database:
                 service_provider integer NOT NULL REFERENCES users (user_id) ON DELETE CASCADE,
                 portfolio varchar NOT NULL,
                 occupation varchar NOT NULL,
+                phone varchar NOT NULL,
                 location varchar NOT NULL,
                 img varchar NOT NULL,
                 cost varchar NOT NULL,
