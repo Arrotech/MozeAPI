@@ -36,15 +36,16 @@ document.getElementById('getServices').onclick = () => {
                 
                 let status = data['status'];
                 let message = data['message'];
-                const { service_provider, portfolio, occupation, location, img, cost } = services;
+                const { service_provider, portfolio, occupation, phone, location, img, cost } = services;
                 // let result = ``;
                 result += `
                     <div className="stack">
                         <p className="par">${services.service_provider}</p><hr>
                         <p className="par"><strong>${services.occupation}</strong></p><hr>
-                        <p className="par"><strong>${services.location}</strong></p><hr>
+                        <p className="par" style="font-size:20px;"><strong>CALL:</strong><i><a href="tel:${services.phone}">${services.phone}</a></i></p><hr>
+                        <p className="par" style="font-size:20px;"><i class="fa fa-map-marker" style="font-size:20px;color:red"></i> <strong>${services.location}</strong></p><hr>
                         <p className="par"><strong>${services.img}</strong></p><hr>
-                        <p className="par" style="font-size:20px;"><strong>KSh: </strong><i>${services.cost}</i></p><hr>
+                        <p className="par" style="font-size:20px;"><strong>KSh: </strong><i><a>${services.cost}</a></i></p><hr>
                     </div><br><hr>
                     <br>
                 `;

@@ -124,6 +124,7 @@ add_service = {
     "service_provider": "1",
     "portfolio": "Technical",
     "occupation": "carpenter",
+    "phone": "0711371265",
     "location": "nakuru",
     "img": "https://picture.png",
     "cost": "2500"
@@ -133,6 +134,7 @@ wrong_service_provider_input = {
     "service_provider": "fyiv",
     "portfolio": "Technical",
     "occupation": "carpenter",
+    "phone": "0711371265",
     "location": "nakuru",
     "img": "https://picture.png",
     "cost": "2500"
@@ -142,6 +144,7 @@ wrong_add_services_keys = {
     "service_provider": "1",
     "poolio": "Technical",
     "occupation": "carpenter",
+    "phone": "0711371265",
     "location": "nakuru",
     "img": "https://picture.png",
     "cost": "2500"

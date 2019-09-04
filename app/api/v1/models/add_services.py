@@ -8,11 +8,12 @@ import psycopg2
 class AddServicesModel(Database):
     """A registered user can add a service."""
 
-    def __init__(self, service_provider=None, portfolio=None, occupation=None, location=None, img=None, cost=None):
+    def __init__(self, service_provider=None, portfolio=None, occupation=None, phone=None, location=None, img=None, cost=None):
         super().__init__()
         self.service_provider = service_provider
         self.portfolio = portfolio
         self.occupation = occupation
+        self.phone = phone
         self.location = location
         self.img = img
         self.cost = cost
@@ -22,9 +23,9 @@ class AddServicesModel(Database):
 
         try:
             self.curr.execute(
-                ''' INSERT INTO add_services(service_provider, portfolio, occupation, location, img, cost)\
-                    VALUES('{}','{}','{}','{}','{}','{}') RETURNING service_provider, portfolio, occupation, location, img, cost''' \
-                    .format(self.service_provider, self.portfolio, self.occupation, self.location, self.img, self.cost))
+                ''' INSERT INTO add_services(service_provider, portfolio, occupation, phone, location, img, cost)\
+                    VALUES('{}','{}','{}','{}','{}','{}','{}') RETURNING service_provider, portfolio, occupation, phone, location, img, cost''' \
+                    .format(self.service_provider, self.portfolio, self.occupation, self.phone, self.location, self.img, self.cost))
             service = self.curr.fetchone()
             self.conn.commit()
             self.curr.close()

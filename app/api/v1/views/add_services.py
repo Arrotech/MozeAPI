@@ -2,7 +2,7 @@ import json
 from flask import make_response, jsonify, request, Blueprint
 from app.api.v1.models.add_services import AddServicesModel
 from app.api.v1.models.users_model import UsersModel
-from utils.v1.validations import check_add_services_keys, raise_error, convert_to_int
+from utils.v1.validations import check_add_services_keys, raise_error, convert_to_int, is_valid_phone
 from flask_jwt_extended import jwt_required
 
 add_services_v1 = Blueprint('add_services_v1', __name__)
@@ -19,6 +19,7 @@ def add_service():
     service_provider = details['service_provider']
     portfolio = details['portfolio']
     occupation = details['occupation']
+    phone = details['phone']
     location = details['location']
     img = details['img']
     cost = details['cost']
@@ -26,9 +27,10 @@ def add_service():
     value = convert_to_int(service_provider)
     if type(value) is not int:
         return raise_error(400, "only positive integer is accepted")
-
+    if not is_valid_phone(phone):
+        return raise_error(400, "Invalid phone number!")
     if UsersModel().get_username(service_provider):
-        service = AddServicesModel(service_provider, portfolio, occupation, location, img, cost).save()
+        service = AddServicesModel(service_provider, portfolio, occupation, phone, location, img, cost).save()
         return make_response(jsonify({
             "status": "201",
             "message": "You have successfully added the service!",

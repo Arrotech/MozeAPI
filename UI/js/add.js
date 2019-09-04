@@ -27,6 +27,7 @@ document.getElementById('postServices').addEventListener('submit', postServices)
             let service_provider = document.getElementById('service_provider').value;
             let portfolio = document.getElementById('portfolio').value;
             let occupation = document.getElementById('occupation').value;
+            let phone = document.getElementById('phone').value;
             let location = document.getElementById('location').value;
             let img = document.getElementById('img').value;
             let cost = document.getElementById('cost').value;
@@ -38,7 +39,7 @@ document.getElementById('postServices').addEventListener('submit', postServices)
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 },
-                body:JSON.stringify({service_provider:service_provider, portfolio:portfolio, occupation:occupation, location:location, img:img, cost:cost})
+                body:JSON.stringify({service_provider:service_provider, portfolio:portfolio, occupation:occupation, phone:phone, location:location, img:img, cost:cost})
             }).then((res) => res.json())
             .then((data) =>  {
 
