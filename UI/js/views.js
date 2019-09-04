@@ -22,7 +22,7 @@ document.getElementById('getServices').onclick = () => {
 
         let occupation = document.getElementById('occupation').value;
 
-        fetch('http://localhost:5000/api/v1/add_services/' + occupation ,{
+        fetch(`https://moze-app-api.herokuapp.com/api/v1/add_services/` + occupation ,{
             method: 'GET',
             path: occupation,
             headers : {
@@ -37,7 +37,7 @@ document.getElementById('getServices').onclick = () => {
                 let status = data['status'];
                 let message = data['message'];
                 const { service_provider, portfolio, occupation, phone, location, img, cost } = services;
-                // let result = ``;
+                // let result += ``;
                 result += `
                     <div className="stack">
                         <p className="par">${services.service_provider}</p><hr>
