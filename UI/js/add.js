@@ -32,7 +32,7 @@ document.getElementById('postServices').addEventListener('submit', postServices)
             let img = document.getElementById('img').value;
             let cost = document.getElementById('cost').value;
 
-            fetch('https://moze-app-api.herokuapp.com/api/v1/add_services', {
+            fetch('https://arrotech-school-portal.herokuapp.com/api/v1/add_services', {
                 method: 'POST',
                 headers : {
                 Accept: 'application/json',

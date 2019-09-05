@@ -20,13 +20,12 @@ class SeekServicesModel(Database):
         try:
             self.curr.execute(
                 ''' INSERT INTO seek_services(service_seeker, service, cost)\
-                    VALUES('{}','{}','{}') RETURNING service_seeker, service, cost''' \
-                    .format(self.service_seeker, self.service, self.cost))
+                    VALUES('{}','{}','{}') RETURNING service_seeker, service, cost'''
+                .format(self.service_seeker, self.service, self.cost))
             service = self.curr.fetchone()
             self.conn.commit()
             self.curr.close()
             return service
-
 
             query = """
 					SELECT users.username, add_services.occupation FROM seek_services\
@@ -54,7 +53,8 @@ class SeekServicesModel(Database):
     def get_service(self, service):
         """Get a service with specific service."""
 
-        self.curr.execute(''' SELECT * FROM seek_services WHERE service=%s''', (service,))
+        self.curr.execute(
+            ''' SELECT * FROM seek_services WHERE service=%s''', (service,))
         service = self.curr.fetchone()
         self.conn.commit()
         self.curr.close()

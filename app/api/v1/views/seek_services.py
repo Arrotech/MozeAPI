@@ -39,6 +39,7 @@ def seek_service():
         return raise_error(400, "Please check your input and try again!")
     return raise_error(400, "Please check your input and try again!")
 
+
 @seek_services_v1.route('/seek_services', methods=['GET'])
 @jwt_required
 def get_all_services():
@@ -49,6 +50,7 @@ def get_all_services():
         "message": "success",
         "hotels": json.loads(SeekServicesModel().get_services())
     }), 200)
+
 
 @seek_services_v1.route('/seek_services/<int:service>', methods=['GET'])
 @jwt_required
@@ -66,4 +68,4 @@ def get_specific_service(service):
     return make_response(jsonify({
         "status": "404",
         "message": "service not found"
-        }), 404)
+    }), 404)

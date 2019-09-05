@@ -20,8 +20,8 @@ class UsersModel(Database):
         """Save information of the new user."""
         self.curr.execute(
             ''' INSERT INTO users(firstname, lastname, phone, username, email, password)\
-                VALUES('{}','{}','{}','{}','{}','{}') RETURNING firstname, lastname, phone, username, email, password''' \
-                .format(self.firstname, self.lastname, self.phone, self.username, self.email, self.password))
+                VALUES('{}','{}','{}','{}','{}','{}') RETURNING firstname, lastname, phone, username, email, password'''
+            .format(self.firstname, self.lastname, self.phone, self.username, self.email, self.password))
         user = self.curr.fetchone()
         self.conn.commit()
         self.curr.close()
@@ -35,7 +35,8 @@ class UsersModel(Database):
 
     def get_username(self, username):
         """Request a single user with specific Username."""
-        self.curr.execute(""" SELECT * FROM users WHERE username=%s""", (username,))
+        self.curr.execute(
+            """ SELECT * FROM users WHERE username=%s""", (username,))
         user = self.curr.fetchone()
         self.conn.commit()
         self.curr.close()

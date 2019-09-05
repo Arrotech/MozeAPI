@@ -17,12 +17,14 @@ def page_not_found(e):
         "message": "resource not found"
     }), 404)
 
+
 def method_not_allowed(e):
     """Capture Not Found error."""
     return make_response(jsonify({
         "status": "405",
         "message": "method not allowed"
     }), 405)
+
 
 def moze_app(config_name):
     """Create the app."""

@@ -5,7 +5,7 @@ from werkzeug.security import check_password_hash
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, create_refresh_token, jwt_refresh_token_required, get_raw_jwt
 from app.api.v1.models.users_model import UsersModel
 from utils.v1.validations import raise_error, check_register_keys, is_valid_email,\
-  is_valid_phone, is_valid_password, check_login_keys
+    is_valid_phone, is_valid_password, check_login_keys
 
 auth_v1 = Blueprint('auth_v1', __name__)
 
@@ -43,13 +43,15 @@ def signup():
     user_email = json.loads(UsersModel().get_email(email))
     if user_email:
         return raise_error(400, "Email already exists!")
-    user = UsersModel(firstname, lastname, phone, username, email, password).save()
+    user = UsersModel(firstname, lastname, phone,
+                      username, email, password).save()
     user = json.loads(user)
     return make_response(jsonify({
         "message": "Account created successfully!",
         "status": "201",
         "user": user
     }), 201)
+
 
 @auth_v1.route('/login', methods=['POST'])
 def login():
@@ -67,7 +69,8 @@ def login():
         if check_password_hash(password_db, password):
             expires = datetime.timedelta(days=365)
             token = create_access_token(identity=email, expires_delta=expires)
-            refresh_token = create_refresh_token(identity=email, expires_delta=expires)
+            refresh_token = create_refresh_token(
+                identity=email, expires_delta=expires)
             return make_response(jsonify({
                 "status": "200",
                 "message": "Successfully logged in!",
@@ -84,6 +87,7 @@ def login():
         "message": "Invalid Email or Password"
     }), 401)
 
+
 @auth_v1.route('/refresh', methods=['POST'])
 @jwt_refresh_token_required
 def refresh():
@@ -95,20 +99,23 @@ def refresh():
     }
     return jsonify(ret), 200
 
+
 @auth_v1.route('/protected', methods=['GET'])
 @jwt_required
 def protected():
     email = get_jwt_identity()
     return jsonify(logged_in_as=email), 200
 
+
 @auth_v1.route('/users', methods=['GET'])
 @jwt_required
 def get_users():
     return make_response(jsonify({
-    "message": "success",
-    "status": "200",
-    "users": json.loads(UsersModel().get_users())
-    }) ,200)
+        "message": "success",
+        "status": "200",
+        "users": json.loads(UsersModel().get_users())
+    }), 200)
+
 
 @auth_v1.route('/users/<string:username>', methods=['GET'])
 @jwt_required
@@ -117,11 +124,11 @@ def get_user(username):
     user = json.loads(user)
     if user:
         return make_response(jsonify({
-        "message": "success",
-        "status": "200",
-        "user": user
-        }) ,200)
+            "message": "success",
+            "status": "200",
+            "user": user
+        }), 200)
     return make_response(jsonify({
-    "message": "User not found",
-    "status": "404"
-    }) ,404)
+        "message": "User not found",
+        "status": "404"
+    }), 404)

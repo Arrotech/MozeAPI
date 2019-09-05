@@ -1,7 +1,6 @@
 import os
 
 import psycopg2
-from psycopg2.extras import RealDictCursor
 
 
 class Database:
@@ -12,8 +11,9 @@ class Database:
         self.db_host = os.getenv('DB_HOST')
         self.db_user = os.getenv('DB_USER')
         self.db_password = os.getenv('DB_PASSWORD')
-        self.conn = psycopg2.connect(database=self.db_name, host=self.db_host, user=self.db_user, password=self.db_password)
-        self.curr = self.conn.cursor(cursor_factory=RealDictCursor)
+        self.conn = psycopg2.connect(
+            database=self.db_name, host=self.db_host, user=self.db_user, password=self.db_password)
+        self.curr = self.conn.cursor()
 
     def create_table(self):
         """Create tables."""
@@ -79,6 +79,7 @@ class Database:
             self.curr.close()
         except Exception as e:
             return e
+
 
 if __name__ == '__main__':
     Database().destroy_table()

@@ -24,13 +24,12 @@ class AddServicesModel(Database):
         try:
             self.curr.execute(
                 ''' INSERT INTO add_services(service_provider, portfolio, occupation, phone, location, img, cost)\
-                    VALUES('{}','{}','{}','{}','{}','{}','{}') RETURNING service_provider, portfolio, occupation, phone, location, img, cost''' \
-                    .format(self.service_provider, self.portfolio, self.occupation, self.phone, self.location, self.img, self.cost))
+                    VALUES('{}','{}','{}','{}','{}','{}','{}') RETURNING service_provider, portfolio, occupation, phone, location, img, cost'''
+                .format(self.service_provider, self.portfolio, self.occupation, self.phone, self.location, self.img, self.cost))
             service = self.curr.fetchone()
             self.conn.commit()
             self.curr.close()
             return service
-
 
             query = """
 					SELECT users.username FROM add_services\
@@ -57,7 +56,8 @@ class AddServicesModel(Database):
     def get_service(self, occupation):
         """Get a service with specific occupation."""
 
-        self.curr.execute(''' SELECT * FROM add_services WHERE occupation=%s''', (occupation,))
+        self.curr.execute(
+            ''' SELECT * FROM add_services WHERE occupation=%s''', (occupation,))
         service = self.curr.fetchall()
         self.conn.commit()
         self.curr.close()

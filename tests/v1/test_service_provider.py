@@ -1,13 +1,14 @@
 import json
 
 from utils.v1.dummy import new_account, add_service, wrong_add_services_keys,\
-wrong_service_provider_input
+    wrong_service_provider_input
 
 from .base_test import BaseTest
 
 
 class TestAddServices(BaseTest):
     """Testing that a registered user can add a service."""
+
     def test_add_service(self):
         """A user can add a service."""
         response1 = self.client.post(
@@ -17,7 +18,8 @@ class TestAddServices(BaseTest):
             '/api/v1/add_services', data=json.dumps(add_service), content_type='application/json',
             headers=self.get_token())
         result = json.loads(response.data.decode())
-        self.assertEqual(result['message'], 'You have successfully added the service!')
+        self.assertEqual(result['message'],
+                         'You have successfully added the service!')
         assert response.status_code == 201
 
     def test_service_provider_input(self):
@@ -30,7 +32,8 @@ class TestAddServices(BaseTest):
             '/api/v1/add_services', data=json.dumps(wrong_service_provider_input), content_type='application/json',
             headers=self.get_token())
         result = json.loads(response.data.decode())
-        self.assertEqual(result['message'], 'only positive integer is accepted')
+        self.assertEqual(result['message'],
+                         'only positive integer is accepted')
         assert response.status_code == 400
 
     def test_add_services_keys(self):

@@ -14,11 +14,13 @@ def create():
 
     Database().create_table()
 
+
 @app.cli.command()
 def destroy():
     """Destroy tables."""
 
     Database().destroy_table()
+
 
 if __name__ == '__main__':
     app.run(debug=True)

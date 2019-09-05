@@ -22,7 +22,7 @@ document.getElementById('getServices').onclick = () => {
 
         let occupation = document.getElementById('occupation').value;
 
-        fetch(`https://moze-app-api.herokuapp.com/api/v1/add_services/` + occupation ,{
+        fetch(`https://arrotech-school-portal.herokuapp.com/api/v1/add_services/` + occupation ,{
             method: 'GET',
             path: occupation,
             headers : {

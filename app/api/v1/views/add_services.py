@@ -30,13 +30,15 @@ def add_service():
     if not is_valid_phone(phone):
         return raise_error(400, "Invalid phone number!")
     if UsersModel().get_username(service_provider):
-        service = AddServicesModel(service_provider, portfolio, occupation, phone, location, img, cost).save()
+        service = AddServicesModel(
+            service_provider, portfolio, occupation, phone, location, img, cost).save()
         return make_response(jsonify({
             "status": "201",
             "message": "You have successfully added the service!",
             "service": service
         }), 201)
     return raise_error(400, "Please check your input and try again!")
+
 
 @add_services_v1.route('/add_services', methods=['GET'])
 def get_all_services():
@@ -47,6 +49,7 @@ def get_all_services():
         "message": "success",
         "hotels": json.loads(AddServicesModel().get_services())
     }), 200)
+
 
 @add_services_v1.route('/add_services/<string:occupation>', methods=['GET'])
 def get_specific_service(occupation):
@@ -63,4 +66,4 @@ def get_specific_service(occupation):
     return make_response(jsonify({
         "status": "404",
         "message": "service not found"
-        }), 404)
+    }), 404)

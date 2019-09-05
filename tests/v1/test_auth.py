@@ -114,7 +114,8 @@ class TestUsersAccount(BaseTest):
             '/api/v1/auth/register', data=json.dumps(wrong_account_password), content_type='application/json',
             headers=self.get_token())
         result = json.loads(response.data.decode())
-        self.assertEqual(result['message'], 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character!')
+        self.assertEqual(
+            result['message'], 'Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character!')
         assert response.status_code == 400
 
     def test_create_account_with_an_existing_phone_number(self):
