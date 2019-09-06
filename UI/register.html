@@ -39,13 +39,21 @@
               <h1>Create</h1>
               <p><i>a new account</i></p>
               <form id="postSignup">
-                  <input id="firstname" type="text" placeholder="First Name">
-                  <input id="lastname" type="text" placeholder="Last Name">
-                  <input id="phone" type="text" placeholder="0711...">
-                  <input id="username" type="text" placeholder="Username">
-                  <input id="email" type="text" placeholder="Email">
-                  <input id="password" type="password" placeholder="Password">
-                  <input type="submit" onclick="callToast()" value="SIGN UP" ><br>
+                      <input id="firstname" type="text" placeholder="Firstname" name="" required>
+                 
+                      <input id="lastname" type="text" placeholder="Lastname" name="" required>
+                
+                      <input id="phone" type="text" placeholder="0711..." name="" required>
+                  
+                      <input id="username" type="text" placeholder="Username" name="" required>
+                
+                      <input id="email" type="text" placeholder="Email" name="" required>
+                  
+                      <input id="password" type="password" placeholder="Password" name="" required>
+           
+                      <input type="submit" value="SIGN UP">
+                  
+                <div id="snackbar">Just a moment...</div>
                   <p class="forgot">Already have an account? <a href="login.html"> Login</a></p>
                   <div id="snackbar">Just a moment...</div>
               </form>

@@ -36,7 +36,7 @@ document.getElementById('postLogin').addEventListener('submit', postLogin);
                         localStorage.setItem('admission_no', data.user.admission_no);
                         localStorage.setItem('email', data.user.email);
                         onSuccess('Signed in successfully!');
-                        window.location.replace('bursar.html');
+                        window.location.replace('view.html');
                     }
                     else {
                         localStorage.setItem('user', data.user);
@@ -44,7 +44,7 @@ document.getElementById('postLogin').addEventListener('submit', postLogin);
                         localStorage.setItem('admission_no', data.user.admission_no);
                         localStorage.setItem('email', data.user.email);
                         onSuccess('Signed in successfully!');
-                        window.location.replace('user.html');
+                        window.location.replace('add.html');
                     }
                 }else{
                     raiseError(message);
