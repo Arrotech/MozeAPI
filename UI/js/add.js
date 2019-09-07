@@ -22,9 +22,6 @@ function raiseError(msg) {
 function postServices(event) {
     event.preventDefault();
 
-    token = window.localStorage.getItem('token');
-
-    let service_provider = document.getElementById('service_provider').value;
     let portfolio = document.getElementById('portfolio').value;
     let occupation = document.getElementById('occupation').value;
     let phone = document.getElementById('phone').value;
@@ -37,9 +34,8 @@ function postServices(event) {
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + token,
         },
-        body: JSON.stringify({ service_provider: service_provider, portfolio: portfolio, occupation: occupation, phone: phone, location: location, img: img, cost: cost })
+        body: JSON.stringify({ portfolio: portfolio, occupation: occupation, phone: phone, location: location, img: img, cost: cost })
     }).then((res) => res.json())
         .then((data) => {
 
