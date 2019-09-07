@@ -2,15 +2,15 @@
 <html>
 
 <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Provide-Services</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="css/add.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-  	<link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Provide-Services</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/add.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
   <div class="topnav" id="myTopnav">
     <a href="index.html" class="active">Moze</a>
     <div class="dropdown">
-      <button class="dropbtn">SERVICES 
+      <button class="dropbtn">SERVICES
         <i class="fa fa-caret-down"></i>
       </button>
       <div class="dropdown-content">
@@ -28,36 +28,85 @@
         <a href="add.html">ADD</a>
         <a href="view.html">VIEW</a>
       </div>
-    </div> 
-      <a href="#news">ABOUT</a>
+    </div>
+    <a href="#news">ABOUT</a>
     <a href="#contact">CONTACT</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
   </div>
   <div class="main">
-          <div class="left">
-              <h1>Add</h1>
-              <p><i>a service</i></p>
-              <form id="postServices">
-                  <input id="service_provider" type="text" placeholder="Username">
-                  <select id="portfolio">
-                    <option value="Technical">--Select an Item--</option>
-                    <option value="Technical">Technical</option>
-                    <option value="Health">Health</option>
-                    <option value="Education">Education</option>
-                    <option value="Domestic">Domestic</option>
-                  </select>
-                  <select id="occupation">
-                    <option value="">--select one--</option>
-                  </select>
-                  <input id="phone" type="text" placeholder="0711...">
-                  <input style="width: 73%" id="location" type="text" placeholder="Address"> <a style="color: #fff; text-decoration: none; margin-left: 2px; font-size: 16px; background: #000000; padding: 5px; border-radius: 50%;"  href="https://www.google.com/business/">+</a>
-                  <input id="img" type="text" placeholder="picture.png">
-                  <input id="cost" type="text" placeholder="20000">
-                  <input type="submit" onclick="callToast()" value="ADD" ><br>
-                  <div id="snackbar">Just a moment...</div>
-              </form>
-          </div>
-      </div>
+    <div class="left">
+      <h1>Add</h1>
+      <p><i>a service</i></p>
+      <form id="postServices">
+        <input id="service_provider" type="text" placeholder="Username" required>
+        <select id="portfolio">
+          <option value="Technical">--Select Category--</option>
+          <option value="Technical">Technical</option>
+          <option value="Health">Health</option>
+          <option value="Education">Education</option>
+          <option value="Domestic">Domestic</option>
+        </select>
+        <select id="occupation">
+          <option value="">--Select Occupation--</option>
+        </select>
+        <input id="phone" type="text" placeholder="0711..." required>
+        <select id="location">
+          <option value="Nairobi">--Select Location--</option>
+          <option value="Mombasa">Mombasa</option>
+          <option value="Kwale">Kwale</option>
+          <option value="Kilifi">Kilifi</option>
+          <option value="Tana River">Tana River</option>
+          <option value="Lamu">Lamu</option>
+          <option value="Taita-Taveta">Taita-Taveta</option>
+          <option value="Garissa">Garissa</option>
+          <option value="Wajir">Wajir</option>
+          <option value="Mandera">Mandera</option>
+          <option value="Marsabit">Marsabit</option>
+          <option value="Isiolo">Isiolo</option>
+          <option value="Meru">Meru</option>
+          <option value="Tharaka-Nithi">Tharaka-Nithi</option>
+          <option value="Embu">Embu</option>
+          <option value="Kitui">Kitui</option>
+          <option value="Machakos">Machakos</option>
+          <option value="Makueni">Makueni</option>
+          <option value="Nyandarua">Nyandarua</option>
+          <option value="Nyeri">Nyeri</option>
+          <option value="Kirinyaga">Kirinyaga</option>
+          <option value="Murang'a">Murang'a</option>
+          <option value="Kiambu">Kiambu</option>
+          <option value="Turkana">Turkana</option>
+          <option value="West Pokot">West Pokot</option>
+          <option value="Samburu">Samburu</option>
+          <option value="Trans Nzoia">Trans Nzoia</option>
+          <option value="Uasin Gishu">Uasin Gishu</option>
+          <option value="Elgeyo-Marakwet">Elgeyo-Marakwet</option>
+          <option value="Nandi">Nandi</option>
+          <option value="Baringo">Baringo</option>
+          <option value="Laikipia">Laikipia</option>
+          <option value="Nakuru">Nakuru</option>
+          <option value="Narok">Narok</option>
+          <option value="Kajiado">Kajiado</option>
+          <option value="Kericho">Kericho</option>
+          <option value="Bomet">Bomet</option>
+          <option value="Kakamega">Kakamega</option>
+          <option value="Vihiga">Vihiga</option>
+          <option value="Bungoma">Bungoma</option>
+          <option value="Busia">Busia</option>
+          <option value="Siaya">Siaya</option>
+          <option value="Kisumu">Kisumu</option>
+          <option value="Homa Bay">Homa Bay</option>
+          <option value="Migori">Migori</option>
+          <option value="Kisii">Kisii</option>
+          <option value="Nyamira">Nyamira</option>
+          <option value="Nairobi">Nairobi</option>
+        </select>
+        <input id="img" type="text" placeholder="picture.png" required>
+        <input id="cost" type="text" placeholder="20000" required>
+        <input type="submit" onclick="callToast()" value="ADD"><br>
+        <div id="snackbar">Just a moment...</div>
+      </form>
+    </div>
+  </div>
   <script>
     function myFunction() {
       var x = document.getElementById("myTopnav");
@@ -73,72 +122,73 @@
   <script>
     $(document).ready(function () {
       $("#portfolio").change(function () {
-         switch($(this).val()) {
-            case 'Education':
-                $("#occupation").html("<option value='Science'>Science</option><option value='Art'>Art</option><option value='Social'>Social</option><option value='Health Science'>Health Science</option>");
-                break;
-            case 'Technical':
-                $("#occupation").html("<option value='Electrical'>Electrical</option><option value='Mechanical'>Mechanical</option><option value='Computer and Electronics'>Computer and Electronics</option>");
-                break;
-            case 'Health':
-                $("#occupation").html("<option value='Emergency'>Emergency</option><option value='Regular Check'>Regular Check</option>");
-                break;
-            case 'Domestic':
-                $("#occupation").html("<option value='General House Work'>General House Work</option>");
-                break;
-            default:
-                $("#occupation").html("<option value=''>--select one--</option>");
-         }
+        switch ($(this).val()) {
+          case 'Education':
+            $("#occupation").html("<option value='Science'>Science</option><option value='Art'>Art</option><option value='Social'>Social</option><option value='Health Science'>Health Science</option>");
+            break;
+          case 'Technical':
+            $("#occupation").html("<option value='Electrical'>Electrical</option><option value='Mechanical'>Mechanical</option><option value='Computer and Electronics'>Computer and Electronics</option>");
+            break;
+          case 'Health':
+            $("#occupation").html("<option value='Emergency'>Emergency</option><option value='Regular Check'>Regular Check</option>");
+            break;
+          case 'Domestic':
+            $("#occupation").html("<option value='General House Work'>General House Work</option>");
+            break;
+          default:
+            $("#occupation").html("<option value=''>-- Select Occupation--</option>");
+        }
       });
     });
   </script>
- <footer class="footer-distributed">
-  <div class="footer-left" id="footer">
-    <h3>Mo<span>ze</span></h3>
+  <footer class="footer-distributed">
+    <div class="footer-left" id="footer">
+      <h3>Mo<span>ze</span></h3>
 
-    <p class="footer-links">
-      <a href="index.html">Moze</a>
-      |
-      <a href="order.html">Order</a>
-      |
-      <a href="add.html">Add</a>
-      |
-      <a href="login.html">Login</a>
-    </p>
+      <p class="footer-links">
+        <a href="index.html">Moze</a>
+        |
+        <a href="order.html">Order</a>
+        |
+        <a href="add.html">Add</a>
+        |
+        <a href="login.html">Login</a>
+      </p>
 
-    <p class="footer-company-name">© 2019 BookIt Ltd.</p>
-  </div>
+      <p class="footer-company-name">© 2019 BookIt Ltd.</p>
+    </div>
 
-  <div class="footer-center">
-    <div>
-      <i class="fa fa-map-marker"></i>
+    <div class="footer-center">
+      <div>
+        <i class="fa fa-map-marker"></i>
         <p><span>389 - Racecourse,
-         Bldg. Name. Arrotech</span>
-        Nakuru, Kenya - 20100</p>
-    </div>
+            Bldg. Name. Arrotech</span>
+          Nakuru, Kenya - 20100</p>
+      </div>
 
-    <div>
-      <i class="fa fa-phone"></i>
-      <p>+254 711 371 265</p>
+      <div>
+        <i class="fa fa-phone"></i>
+        <p>+254 711 371 265</p>
+      </div>
+      <div>
+        <i class="fa fa-envelope"></i>
+        <p><a href="mailto:arrotechdesign@gmail.com">arrotechdesign@gmail.com</a></p>
+      </div>
     </div>
-    <div>
-      <i class="fa fa-envelope"></i>
-      <p><a href="mailto:arrotechdesign@gmail.com">arrotechdesign@gmail.com</a></p>
+    <div class="footer-right">
+      <p class="footer-company-about">
+        <span>About the company</span>
+        We offer tour, travel and booking services around the world. Book for these services with only a few clicks of a
+        button.</p>
+      <div class="footer-icons">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="#"><i class="fa fa-youtube"></i></a>
+      </div>
     </div>
-  </div>
-  <div class="footer-right">
-    <p class="footer-company-about">
-      <span>About the company</span>
-      We offer tour, travel and booking services around the world. Book for these services with only a few clicks of a button.</p>
-    <div class="footer-icons">
-      <a href="#"><i class="fa fa-facebook"></i></a>
-      <a href="#"><i class="fa fa-twitter"></i></a>
-      <a href="#"><i class="fa fa-instagram"></i></a>
-      <a href="#"><i class="fa fa-linkedin"></i></a>
-      <a href="#"><i class="fa fa-youtube"></i></a>
-    </div>
-  </div>
-</footer>
+  </footer>
 </body>
 
 </html>
