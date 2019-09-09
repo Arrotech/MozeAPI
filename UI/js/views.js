@@ -22,7 +22,7 @@ document.getElementById('getServices').onclick = () => {
 
     let occupation = document.getElementById('occupation').value;
 
-    fetch(`http://localhost:5000/api/v1/add_services/` + occupation, {
+    fetch(`https://moze-api-endpoints.herokuapp.com/api/v1/add_services/` + occupation, {
         method: 'GET',
         path: occupation,
         headers: {

@@ -29,7 +29,7 @@ function postServices(event) {
     let img = document.getElementById('img').value;
     let cost = document.getElementById('cost').value;
 
-    fetch('http://localhost:5000/api/v1/add_services', {
+    fetch('https://moze-api-endpoints.herokuapp.com/api/v1/add_services', {
         method: 'POST',
         headers: {
             Accept: 'application/json',
